@@ -1,0 +1,42 @@
+.slider {
+    display: flex;
+    position: relative;
+    padding: 100px 0;
+}
+
+.slider ul{
+    display: flex;
+    transition: 0.2s;
+}
+
+.slider ul li {
+    display: flex;
+    justify-content: center;
+    width: 25vw;
+    
+}
+
+.left, .right{
+    position: absolute;
+    z-index: 5;
+    cursor: pointer;
+    transition: .2s;
+
+}
+
+.left:hover, .right:hover{
+    transform: scale(1.1) translate(-50%, -50%);
+
+}
+
+.left {
+    top: 50%;
+    left: 2vw;
+    transform: translate(-50%, -50%);
+}
+
+.right {
+    top: 50%;
+    left: 98vw;
+    transform: translate(-50%, -50%);
+}

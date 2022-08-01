@@ -1,0 +1,25 @@
+
+
+.mosaic {
+    display: flex;
+    
+    
+    width: 80%;
+    margin: 100px auto;
+}
+
+.mosaic ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+
+}
+
+.mosaic ul li {
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    margin-top: 20px;
+    
+}

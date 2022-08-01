@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+}
+
+button {
+    cursor: pointerls;
+}
+
+body {
+    overflow: hidden;
+    overflow-y: auto;
+    display: flex;
+    
+    height: 100vh;
+}
+
+.App {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  
+}
+
+.btnChange {
+    position: absolute;
+    top: 20px;
+    left: 50vw;
+    transform: translateX(-50%);
+    z-index: 5;
+    transition: 0.2s;
+}
+
+.sliderBtn {
+    display: flex;
+    width: 50px;
+    justify-content: flex-start;
+    position: relative;
+
+}
+
+.sliderBtn .block {
+    width: 30px;
+    height:15px;
+    background-color: rgb(78, 78, 78);
+    position: relative;
+}
+
+.sliderBtn :nth-child(2) {
+    height: 2px;
+    width: 15px;
+    background-color: gray;
+    position: absolute;
+    top:30%;
+    transform: translateY(-50%);
+    right: -1px;
+}
+
+.sliderBtn :nth-child(3) {
+    height: 2px;
+    width: 8px;
+    background-color: gray;
+    position: absolute;
+    top: 75%;
+    transform: translateY(-50%);
+    right: 9px;
+}
+
+.btnChange:hover {
+    cursor: pointer;
+    transform: scale(1.2, 1.2) translateX(-50%);
+}
+
+.mosaicBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: 23px;
+    height: 23px;
+}
+
+.mosaicBtn div{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(78, 78, 78);;
+}
+
+li img{
+    transition: .2s;
+}
+
+li img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(109, 109, 109, 0.4);
+}
