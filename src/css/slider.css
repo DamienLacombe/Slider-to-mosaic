@@ -18,7 +18,7 @@
 
 .left, .right{
     position: absolute;
-    z-index: 5;
+    
     cursor: pointer;
     transition: .2s;
 
@@ -29,14 +29,28 @@
 
 }
 
+svg, path {
+    z-index: -1;
+}
+
 .left {
     top: 50%;
     left: 2vw;
     transform: translate(-50%, -50%);
+    height: 20px;
+    width: 20px;
 }
 
 .right {
+     height: 20px;
+    width: 20px;
     top: 50%;
     left: 98vw;
     transform: translate(-50%, -50%);
+}
+
+button {
+    z-index: 10;
+    background: transparent;
+    border: none;
 }

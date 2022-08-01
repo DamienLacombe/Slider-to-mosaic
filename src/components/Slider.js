@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
@@ -9,26 +9,38 @@ const Slider = () => {
   
   let [sizeSlide, setSizeSlide] = useState(0)
 
+  useEffect(() => {
+    document.querySelector(".left").style.display = "none"  
+  },[])
   function slide(e) {
       
       const slider = document.querySelector(".slider ul");
       const liWidth = document.querySelector("li").offsetWidth;
-      
-      console.log(sizeSlide);
-      
-      if (e.target.classList.contains("right")) {
+           
+      if (e.currentTarget.classList.contains("right")) {
+         
           setSizeSlide(sizeSlide -= liWidth);
-          slider.style.transform = `translateX(${sizeSlide}px)`;
+          slider.style.transform = `translateX(${sizeSlide}px)`; 
+          document.querySelector(".left").style.display = "block" 
+          
+          if (sizeSlide - (liWidth * 4) <= (slider.offsetWidth ) * -1) {
+            e.currentTarget.style.display = "none"
+          }
       } else {
-          setSizeSlide(sizeSlide += liWidth); 
-          slider.style.transform = `translateX(${sizeSlide}px)`;
+        
+        setSizeSlide(sizeSlide += liWidth); 
+        slider.style.transform = `translateX(${sizeSlide}px)`;
+        document.querySelector(".right").style.display = "block"
+        
+        if (sizeSlide === 0) {
+              e.currentTarget.style.display = "none"
+        }
       }
-      
   }
 
   return (
     <div className='slider'>
-      <FontAwesomeIcon className='left' onClick={(e) => slide(e)}  icon={faArrowLeft} />
+      <button className='left' onClick={(e) => slide(e)}><FontAwesomeIcon icon={faArrowLeft} /></button>
       
       <ul>
         <li>
@@ -92,7 +104,7 @@ const Slider = () => {
           <img src="https://via.placeholder.com/150?text=20" alt="" />
         </li>
       </ul>
-      <FontAwesomeIcon className='right' onClick={(e) => slide(e) } icon={faArrowRight} />
+      <button className='right' onClick={(e) => slide(e) }><FontAwesomeIcon icon={faArrowRight} /></button> 
     </div>
   )
 }
